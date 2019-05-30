@@ -18,6 +18,9 @@
 
 
 </head>
+<body class="bodypolos">
+
+
 <nav class="navbar navbarfont navbar-expand-lg navbar-inverse navbar-dark fixed-top home" style="background-color: rgba(0, 0, 0, 0)">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span id="toggler"><i class="fa fa-bars" aria-hidden="true"></i></span>
@@ -70,3 +73,4 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <script src="{{ asset('/js/tampilan/genosstyle.js') }}"></script>
+</body>

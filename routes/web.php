@@ -38,6 +38,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/snack', function () {
         return view('/admin/master/datasnack');
     })->name('snack');
+
+    Route::get('/user', function () {
+        return view('/admin/master/datauser');
+    })->name('user');
 });
 
 
