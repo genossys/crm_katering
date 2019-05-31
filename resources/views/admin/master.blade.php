@@ -26,7 +26,7 @@
     @yield('css')
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini bodypolos">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -45,7 +45,7 @@
 
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto" style="margin-right: 0">
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -83,8 +83,7 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview ">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-database"></i>
@@ -100,14 +99,9 @@
                                         <p>Data Snack</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link ">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Data Paket</p>
-                                    </a>
-                                </li>
+
                                 <li class="nav-item ">
-                                    <a href="" class="nav-link">
+                                    <a href="{{route ('user')}}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data User</p>
                                     </a>

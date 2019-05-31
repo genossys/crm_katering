@@ -17,6 +17,10 @@ body {
     background-position: 0, -100px;
 }
 
+.bodypolos{
+background-image: unset;
+}
+
 nav.home {
     background-color: rgba(255, 255, 255, 1);
 }
@@ -41,6 +45,11 @@ nav.home li.nav-item .nav-link {
 }
 
 nav.home li.nav-item .nav-link:hover {
+    transform: scale(1.1);
+    color: gold;
+}
+
+nav.home li.nav-item .nav-link:active {
     transform: scale(1.1);
     color: gold;
 }
@@ -163,7 +172,7 @@ ul.navbar-nav {
 .inputjumlah {
     text-align: center;
     width: 50px;
-    display: inline;
+    display: inline-block;
     border-radius: 0;
     box-shadow: 3px 3px 5px grey;
 }
@@ -285,9 +294,5 @@ ul.navbar-nav {
 }
 .modalprodukbody{
     background-color: rgba(0, 0, 0, 0);
-
-}
-
-.master-footer{
 
 }
