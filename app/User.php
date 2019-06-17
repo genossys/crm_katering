@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'user_id', 'password', 'hak_akses'
+        'username', 'password', 'hakAkses', 'email'
     ];
 
     /**
@@ -34,4 +34,15 @@ class User extends Authenticatable
      * @var array
      */
 
+     public function hakAkses($hakakses){
+
+        $arr = explode('|', $hakakses);
+        foreach ( $arr as $key) {
+            if ($this->hakAkses == $key) {
+                return true;
+                break;
+            }
+        }
+        return false;
+     }
 }

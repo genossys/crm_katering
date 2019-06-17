@@ -20,12 +20,11 @@ Data Snack
         <thead>
             <tr>
                 <th>#</th>
-                <th>ID Snack</th>
+                <th>Kd Snack</th>
                 <th>Nama Snack</th>
-                <th>Harga</th>
-                <th>Dekripsi</th>
-                <th>gambar</th>
-                <th>promo</th>
+                <th>Kategori</th>
+                <th>Satuan</th>
+                <th>Harga Jual</th>
                 <th>Action</th>
             </tr>
         </thead>

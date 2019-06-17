@@ -17,38 +17,49 @@
 //Route::get('/', 'Master\kelasControl@sendWA');
 
 //Login
-Route::get('/login', 'AuthController@login')->name('login');
-Route::post('/postlogin', 'AuthController@postlogin');
-Route::get('/logout', 'AuthController@logout')->name('logout');
-
 Auth::routes();
+
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/postlogin', 'Auth\LoginController@postlogin');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+
 
 Route::get('/', function () {
     return view('/umum/welcome');
-});
-
-
-
-Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/admin', function () {
-        return view('/admin/menuawal');
-    })->name('admin');
-
-    Route::get('/snack', function () {
-        return view('/admin/master/datasnack');
-    })->name('snack');
-
-    Route::get('/user', function () {
-        return view('/admin/master/datauser');
-    })->name('user');
-});
-
-
-Auth::routes();
+})->name('home');
 
 Route::get('/produk', function () {
     return view('/umum/produk');
 })->name('produk');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::group(['prefix' => 'admin', 'middleware' => 'hakakses:pimpinan|admin'], function(){
+            Route::get('/', function () {
+                return view('/admin/menuawal');
+            })->name('admin');
+
+            Route::group(['prefix' => 'satuan'], function(){
+                Route::get('/','Master\satuanController@index')->name('adminSatuan');
+                Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
+                Route::post('/simpanSatuan','Master\satuanController@insert');
+            });
+            
+            Route::group(['prefix' => 'product'], function(){
+                Route::get('/', 'Master\productController@index')->name('adminProduct');
+                Route::post('/simpanProduct', 'Master\productController@insert');
+                Route::post('/editProduct','Master\productController@update');
+                Route::delete('/deleteProduct','Master\productController@delete');
+            });
+    });
+
+});
+
+
+Auth::routes();
+
+
+
+// Route::get('/home', 'HomeController@index')->name('home');
