@@ -20,12 +20,32 @@
             </table>
         </div>
     </div>
-</div>
-@endsection
 
 
-@section('footer')
-<section>
+
+
+    <div class="catatankusus container">
+    <hr>
+        <div class="form-group">
+            <label>Catatan Kusus </label>
+            <textarea class="form-control" rows="3" id="txtCatatan" name="txtCatantan"></textarea>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-2">
+                <button class="btn btn-primary btn-lg">Check Out</button>
+            </div>
+
+            <div class="col-sm-10 text-right">
+                <div class="totalkeranjang ">
+                    <a>Total :</a> <a> Rp 50.000 </a> </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div> @endsection @section('footer') <section>
     <footer>
         <div class="footer">
             &copy; Copyright 2019
