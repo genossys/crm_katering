@@ -209,7 +209,6 @@ ul.navbar-nav {
     padding: 10px;
     height: 320px;
     border-radius: 10px;
-    background-color: rgba(255, 215, 0, 0.8);
     box-shadow: 3px 3px 5px grey;
     overflow: hidden;
 }
@@ -237,6 +236,10 @@ ul.navbar-nav {
     color: black;
 }
 
+.namaproduk{
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 .tombolpesankecil {
     width: 100%;
@@ -259,34 +262,6 @@ ul.navbar-nav {
     background-color: rgba(34, 34, 34, 0.85);
 }
 
-.kartupaket {
-    padding: 10px;
-    height: 500px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 3px 3px 5px grey;
-    overflow: hidden;
-}
-
-.kartupaket img {
-    width: 100%;
-    height: 40%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    object-fit: cover;
-}
-
-.tombolpesanpaket {
-    width: 92%;
-    position: absolute;
-    bottom: 0px;
-}
-
-.namapaket{
-    margin-top: 10px;
-    color: gold;
-}
-
 /* Modal Produk */
 .modalprodukdialog{
     background-color: rgba(0, 0, 0, 0);
@@ -297,9 +272,6 @@ ul.navbar-nav {
 
 }
 
-.btn-detail{
-    box-shadow: 3px 3px 5px grey;
-}
 
 .tabelkeranjang{
     background-color: rgba(255, 255, 255, 0.85);
@@ -307,4 +279,14 @@ ul.navbar-nav {
 
 .totalkeranjang a{
     font-size: 40px;
+}
+
+.rekening{
+    background-color: white;
+    margin: 16px;
+}
+
+.tombolcarousel{
+    width: 5%;
+    width: 5%;
 }

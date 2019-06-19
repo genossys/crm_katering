@@ -1,6 +1,6 @@
 @extends('umum.master')
 @section('content')
-<div class="tabelkeranjang" style="height: 100%">
+<div class="tabelkeranjang pb-3">
     <div class="container pt-3">
         <h3 class="text-left"> Keranjang</h3>
         <div class="table-responsive-lg ">
@@ -40,7 +40,7 @@
 
             <div class="col-sm-10 text-right">
                 <div class="totalkeranjang ">
-                    <a>Total :</a> <a> Rp 50.000 </a> </div>
+                    <a>Total: </a> <a class="font-weight-bold"> Rp 50.000 </a> </div>
             </div>
         </div>
         <hr>

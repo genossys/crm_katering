@@ -37,6 +37,10 @@ Route::get('/keranjang', function () {
     return view('/umum/keranjang');
 })->name('keranjang');
 
+Route::get('/pembayaran', function () {
+    return view('/umum/pembayaran');
+})->name('pembayaran');
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => 'hakakses:pimpinan|admin'], function(){
