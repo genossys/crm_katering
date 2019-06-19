@@ -7,17 +7,11 @@
                 <h3 class="text-left mb-5"> Promo</h3>
             </div>
             <div class="col-sm-7 text-right" style="font-size: 20px">
-                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Lebih</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
+                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
             </div>
         </div>
     </div>
-    <div id="carouspromo" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ul class="carousel-indicators">
-            <li data-target="#carouspromo" data-slide-to="0" class="active"></li>
-            <li data-target="#carouspromo" data-slide-to="1"></li>
-            <li data-target="#carouspromo" data-slide-to="2"></li>
-        </ul>
+    <div id="carouspromo" class="carousel slide" data-ride="carousel" data-interval="5000">
 
         <!-- The slideshow -->
         <div class="carousel-inner container">
@@ -92,20 +86,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
-                <h3 class="text-left mb-5"> Promo</h3>
+                <h3 class="text-left mb-5"> Snack</h3>
             </div>
             <div class="col-sm-7 text-right" style="font-size: 20px">
-                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Lebih</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
+                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
             </div>
         </div>
     </div>
-    <div id="carousproduk" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ul class="carousel-indicators">
-            <li data-target="#carousproduk" data-slide-to="0" class="active"></li>
-            <li data-target="#carousproduk" data-slide-to="1"></li>
-            <li data-target="#carousproduk" data-slide-to="2"></li>
-        </ul>
+    <div id="carousproduk" class="carousel slide" data-ride="carousel" data-interval="6000">
+
 
         <!-- The slideshow -->
         <div class="carousel-inner container">
@@ -450,75 +439,163 @@
 
 <section class="paketkami">
     <div class="container">
-        <h3 class="text-left mb-5"> Paket Kami</h3>
         <div class="row">
-            <div class="col-md-3">
-                <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
-                    <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
-                    <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
-                    <div class="tombolpesankecil">
-                        <h4> Rp 15.000</h4>
-                    </div>
-                    <div class="tombolpesankecil text-right">
-                        <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
-                    </div>
-                </div>
+            <div class="col-sm-5">
+                <h3 class="text-left mb-5"> Paket</h3>
             </div>
-
+            <div class="col-sm-7 text-right" style="font-size: 20px">
+                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
+            </div>
         </div>
-
-
     </div>
+    <div id="carouspaket" class="carousel slide" data-ride="carousel" data-interval="7000">
 
 
-
-    <!-- Modal Detail Produk -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content modalprodukdialog">
-
-                <!-- Modal body -->
-                <div class="modal-body modalprodukbody">
-                    <button style="padding-right: 10px" type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div class="jumbotron  modalproduk">
-                        <div class="row">
-                            <div class="col-sm-5 text-right">
-                                <img class="gambarmodal img-fluid" src="{{asset ('/assets/gambar/arem.jpg')}}" alt="{{asset ('/assets/gambar/arem.jpg')}}">
+        <!-- The slideshow -->
+        <div class="carousel-inner container">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
                             </div>
-                            <div class="col-sm-7">
-                                <h3 class="font-weight-bold"> Arem arem </h3>
-                                <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
-                                <h3 style="color: black"> Rp. 2.000</h3>
-
-                                <div class="tombolpesan">
-                                    <p>
-                                    </p>
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-danger btn-number input-plus" data-type="minus" data-field="quant[2]">
-                                                <span>-</span>
-                                            </button>
-                                        </span>
-                                        <input type="text" name="quant[2]" class="input-number text-center" value="1" min="1" max="100" style="width: 50px">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-success btn-number input-min" data-type="plus" data-field="quant[2]">
-                                                <span>+</span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <p></p>
-
-                                    <button class="btn btn-primary">Tambah Ke Keranjang</button>
-                                </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
+                            </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
+                            </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
+                            </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
+                            </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="kartuproduk" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{asset ('/assets/gambar/paket1.jpg')}}" alt="">
+                            <h3 class="text-left namaproduk" data-toggle="modal" data-target="#myModal"> Paket 1 </h3>
+                            <div class="tombolpesankecil">
+                                <h4> Rp 15.000</h4>
+                            </div>
+                            <div class="tombolpesankecil text-right">
+                                <button class="btn btn-primary btn-detail" data-toggle="modal" data-target="#myModal">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev tombolcarousel" href="#carouspaket" data-slide="prev">
+            <span><i class="fa fa-arrow-left" aria-hidden="true" style="color: black"></i></span>
+        </a>
+        <a class="carousel-control-next tombolcarousel" href="#carouspaket" data-slide="next">
+            <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: black"></i></span>
+        </a>
     </div>
 </section>
+
+
+<!-- Modal Detail Produk -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modalprodukdialog">
+
+            <!-- Modal body -->
+            <div class="modal-body modalprodukbody">
+                <button style="padding-right: 10px" type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="jumbotron  modalproduk">
+                    <div class="row">
+                        <div class="col-sm-5 text-right">
+                            <img class="gambarmodal img-fluid" src="{{asset ('/assets/gambar/arem.jpg')}}" alt="{{asset ('/assets/gambar/arem.jpg')}}">
+                        </div>
+                        <div class="col-sm-7">
+                            <h3 class="font-weight-bold"> Arem arem </h3>
+                            <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
+                            <h3 style="color: black"> Rp. 2.000</h3>
+
+                            <div class="tombolpesan">
+                                <p>
+                                </p>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-danger btn-number input-plus" data-type="minus" data-field="quant[2]">
+                                            <span>-</span>
+                                        </button>
+                                    </span>
+                                    <input type="text" name="quant[2]" class="input-number text-center" value="1" min="1" max="100" style="width: 50px">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-success btn-number input-min" data-type="plus" data-field="quant[2]">
+                                            <span>+</span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <p></p>
+
+                                <button class="btn btn-primary">Tambah Ke Keranjang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 @endsection
 
 

@@ -33,6 +33,11 @@ Route::get('/produk', function () {
     return view('/umum/produk');
 })->name('produk');
 
+Route::get('/produkbykategori', function () {
+    return view('/umum/produkbykategori');
+})->name('produkbykategori');
+
+
 Route::get('/keranjang', function () {
     return view('/umum/keranjang');
 })->name('keranjang');
