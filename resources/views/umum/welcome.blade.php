@@ -66,7 +66,7 @@
                 </li>
                 @else
                 <li class="nav-item ">
-                    <a class="nav-link" href="/login">
+                    <a class="nav-link" href="{{ route('login') }}"> 
                         Login
                         <i class="fa fa-user"></i>
                     </a>
