@@ -3,7 +3,7 @@ body {
     height: 100%;
     background-image: url(../assets/gambar/bg-food.jpg);
     background-repeat: repeat;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Bree Serif', serif;
     padding: 0;
     margin: 0;
 }
@@ -151,13 +151,13 @@ ul.navbar-nav {
 .newproduk {
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: gold;
+    background-color: rgba(255, 215, 0, 0.85);
     min-height: 400px;
 
 }
 
 .modalproduk{
-    background-color: gold;
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 10px;
     box-shadow: 3px 3px 5px black;
 }
@@ -169,12 +169,17 @@ ul.navbar-nav {
     border-radius: 5px;
 }
 
+.gambarmodal {
+    height: 30vw;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 .inputjumlah {
     text-align: center;
     width: 50px;
     display: inline-block;
     border-radius: 0;
-    box-shadow: 3px 3px 5px grey;
 }
 
 .tombolpesan {
@@ -184,17 +189,16 @@ ul.navbar-nav {
 .input-plus {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    box-shadow: 3px 3px 5px grey;
 }
 
 .input-min {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    box-shadow: 3px 3px 5px grey;
 }
 
 .judulsection {
-    width: 300px;
+
+    width: 100%;
 }
 
 .colnya {
@@ -202,10 +206,10 @@ ul.navbar-nav {
 }
 
 .kartuproduk {
+    margin-bottom: 30px;
     padding: 10px;
     height: 320px;
     border-radius: 10px;
-    background-color: gold;
     box-shadow: 3px 3px 5px grey;
     overflow: hidden;
 }
@@ -224,23 +228,23 @@ ul.navbar-nav {
         width: 100%;
         text-align: center;
         cursor: pointer;
+        font-size: 20px
 }
 
 .kartuproduk h4 {
     width: 100%;
-}
-
-.kartuproduk h4 {
+    font-size: 25px;
     color: black;
 }
 
-.tombolpesankecil {
-    width: 88%;
-    bottom: 0;
-    margin-top: 0;
-    margin-right: 10px;
-    position: absolute;
+.namaproduk{
+    white-space: nowrap;
+    overflow: hidden;
+}
 
+.tombolpesankecil {
+    width: 100%;
+    bottom: 0;
 }
 
 .paketkami {
@@ -259,34 +263,6 @@ ul.navbar-nav {
     background-color: rgba(34, 34, 34, 0.85);
 }
 
-.kartupaket {
-    padding: 10px;
-    height: 500px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 3px 3px 5px grey;
-    overflow: hidden;
-}
-
-.kartupaket img {
-    width: 100%;
-    height: 40%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    object-fit: cover;
-}
-
-.tombolpesanpaket {
-    width: 92%;
-    position: absolute;
-    bottom: 0px;
-}
-
-.namapaket{
-    margin-top: 10px;
-    color: gold;
-}
-
 /* Modal Produk */
 .modalprodukdialog{
     background-color: rgba(0, 0, 0, 0);
@@ -295,4 +271,23 @@ ul.navbar-nav {
 .modalprodukbody{
     background-color: rgba(0, 0, 0, 0);
 
+}
+
+
+.tabelkeranjang{
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.totalkeranjang a{
+    font-size: 40px;
+}
+
+.rekening{
+    background-color: white;
+    margin: 16px;
+}
+
+.tombolcarousel{
+    width: 5%;
+    width: 5%;
 }

@@ -7,7 +7,7 @@
 
     <title>CRM Katering</title>
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap" rel="stylesheet">
     <!-- Styles -->
     <!-- Font Awesome -->
@@ -21,7 +21,7 @@
 <body class="bodypolos">
 
 
-<nav class="navbar navbarfont navbar-expand-lg navbar-inverse navbar-dark fixed-top home" style="background-color: rgba(0, 0, 0, 0)">
+<nav class="navbar navbarfont navbar-expand-lg navbar-inverse navbar-light fixed-top home" style="background-color: rgba(0, 0, 0, 0)">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span id="toggler"><i class="fa fa-bars" aria-hidden="true"></i></span>
     </button>
@@ -43,7 +43,7 @@
                 <a class="nav-link" href="{{route('produk')}}">Kontak</a>
             </li>
 
-            
+
                 @if (auth()->check())
 
                 @if (auth()->user()->hakAkses == 'admin' || auth()->user()->hakAkses == 'pimpinan')
@@ -58,6 +58,9 @@
                         <i class="fa fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                    <a href="{{route('keranjang')}}" class="dropdown-item dropdown-footer">Keranjang <span class="badge badge-danger">4</span></a>
+                        <a href="{{route('logout')}}" class="dropdown-item dropdown-footer">History Belanja</a>
+                        <hr>
                         <a href="{{route('logout')}}" class="dropdown-item dropdown-footer">Logout</a>
                     </div>
                 </li>
@@ -69,8 +72,8 @@
                     </a>
                 </li>
                 @endif
-                
-            
+
+
 
         </ul>
     </div>

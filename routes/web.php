@@ -35,6 +35,18 @@ Route::get('/produk', function () {
     return view('/umum/produk');
 })->name('produk');
 
+Route::get('/produkbykategori', function () {
+    return view('/umum/produkbykategori');
+})->name('produkbykategori');
+
+
+Route::get('/keranjang', function () {
+    return view('/umum/keranjang');
+})->name('keranjang');
+
+Route::get('/pembayaran', function () {
+    return view('/umum/pembayaran');
+})->name('pembayaran');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -61,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
                 Route::post('/simpanSatuan','Master\satuanController@insert');
             });
-            
+
             Route::group(['prefix' => 'product'], function(){
                 Route::get('/', 'Master\productController@index')->name('adminProduct');
                 Route::post('/simpanProduct', 'Master\productController@insert');

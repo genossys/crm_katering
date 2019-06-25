@@ -44,7 +44,8 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         return redirect('/');
     }
@@ -65,17 +66,10 @@ class LoginController extends Controller
             // return response()->json([
             //     'data' => $user
             // ]);
-            if ($user->hakAkses == 'admin') {
-                # code...
-                return redirect('/admin');
-            } else {
-                # code...
-                return redirect('/');
-            }
+
+            return redirect('/');
         } else {
             return redirect()->back()->with('gagal', 'user id/password salah');
         }
     }
-
-
 }
