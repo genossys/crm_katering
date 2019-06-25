@@ -71,7 +71,7 @@
                             <button type="submit" class="btn btn-block btn-primary btn-flat">Login</button>
                         </div>
 
-                        <p style="margin-top: 10px;font-family: 'Merriweather Sans', sans-serif;">Jika anda belum terdaftar bisa <a href="#">Daftar disini.</a> </p>
+                        <p style="margin-top: 10px;font-family: 'Merriweather Sans', sans-serif;">Jika anda belum terdaftar bisa <a href="/register">Daftar disini.</a> </p>
                         <!-- /.col -->
                     </div>
                 </form>

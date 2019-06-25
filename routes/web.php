@@ -19,14 +19,16 @@
 //Login
 Auth::routes();
 
-Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/register','Auth\customerController@showRegistrasiForm');
+
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/postlogin', 'Auth\LoginController@postlogin');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
 Route::get('/', function () {
-    return view('/umum/welcome');
+    return view('umum.welcome');
 })->name('home');
 
 Route::get('/produk', function () {
@@ -40,6 +42,19 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/', function () {
                 return view('/admin/menuawal');
             })->name('admin');
+
+            
+            Route::group(['prefix' => 'user'], function(){
+                // Route::get('/','Master\userController@index')->name('pageuser');
+                // Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
+                // Route::post('/simpanSatuan','Master\satuanController@insert');
+            });
+
+            Route::group(['prefix' => 'customer'], function(){
+                // Route::get('/','Master\userController@index')->name('pagecustomer');
+                // Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
+                // Route::post('/simpanSatuan','Master\satuanController@insert');
+            });
 
             Route::group(['prefix' => 'satuan'], function(){
                 Route::get('/','Master\satuanController@index')->name('adminSatuan');
@@ -59,7 +74,3 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Auth::routes();
-
-
-
-// Route::get('/home', 'HomeController@index')->name('home');
