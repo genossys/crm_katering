@@ -1,5 +1,43 @@
 @extends('umum.master')
 @section('content')
+
+<section class="filterpencarian">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 offset-2" style="font-size: 12Px">
+                <div class="form-group">
+                    <label> Cari Barang</label>
+                    <input class="form-control" type="text" id="namasnack" name="namasnack" placeholder="Nama Barang" />
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-3 " style="font-size: 12Px">
+                <div class="form-group">
+                    <label> Harga Maksimal</label>
+                    <input class="form-control" type="number" id="hargamax" name="hargamax" placeholder="Harga Maksimal" />
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3" style="font-size: 12Px">
+                <div class="form-group">
+                    <label> Urutkan</label>
+                    <select class="form-control">
+                        <option value="termurah">Termurah</option>
+                        <option value="termahal">Terlaris</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-1" style="font-size: 12Px">
+                <div class="form-group">
+                    <label> <br></label>
+                    <button class="form-control btn btn-info"><span><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="newproduk ">
     <div class="container">
         <div class="row">
@@ -7,7 +45,6 @@
                 <h3 class="text-left mb-5"> Promo</h3>
             </div>
             <div class="col-sm-7 text-right" style="font-size: 20px">
-                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
             </div>
         </div>
     </div>
@@ -89,11 +126,10 @@
                 <h3 class="text-left mb-5"> Snack</h3>
             </div>
             <div class="col-sm-7 text-right" style="font-size: 20px">
-                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
             </div>
         </div>
     </div>
-    <div id="carousproduk" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <div id="carousproduk" class="carousel slide" data-ride="carousel">
 
 
         <!-- The slideshow -->
@@ -444,11 +480,10 @@
                 <h3 class="text-left mb-5"> Paket</h3>
             </div>
             <div class="col-sm-7 text-right" style="font-size: 20px">
-                <a class="text-left mb-5" style="color:cornflowerblue"> Lihat Semua</a> <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: cornflowerblue"></i></span>
             </div>
         </div>
     </div>
-    <div id="carouspaket" class="carousel slide" data-ride="carousel" data-interval="7000">
+    <div id="carouspaket" class="carousel slide" data-ride="carousel" >
 
 
         <!-- The slideshow -->
