@@ -48,6 +48,18 @@ Route::get('/pembayaran', function () {
     return view('/umum/pembayaran');
 })->name('pembayaran');
 
+Route::get('/datapesanan', function () {
+    return view('admin/transaksi/datapesanan');
+})->name('datapesanan');
+
+Route::get('/user', function () {
+    return view('admin/master/datauser');
+})->name('user');
+
+Route::get('/customer', function () {
+    return view('admin/master/datacustomer');
+})->name('customer');
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => 'hakakses:pimpinan|admin'], function(){
@@ -55,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
                 return view('/admin/menuawal');
             })->name('admin');
 
-            
+
             Route::group(['prefix' => 'user'], function(){
                 // Route::get('/','Master\userController@index')->name('pageuser');
                 // Route::get('/dataSatuan','Master\satuanController@getDataSatuan');

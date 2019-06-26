@@ -94,14 +94,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item ">
-                                    <a href="" class="nav-link">
+                                    <a href="/user" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data User</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item ">
-                                    <a href="" class="nav-link">
+                                    <a href="/customer" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data Customer</p>
                                     </a>
@@ -119,7 +119,7 @@
                                     </a>
                                 </li>
 
-                                
+
                             </ul>
                         </li>
 
@@ -133,9 +133,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link ">
+                                    <a href="{{route ('datapesanan')}}" class="nav-link ">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Order</p>
+                                        <p>Pesanan</p>
                                     </a>
                                 </li>
 
@@ -154,7 +154,21 @@
                                 <li class="nav-item">
                                     <a href="" class="nav-link ">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Laporan Data Order</p>
+                                        <p>Laporan Snack</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" class="nav-link ">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Laporan Customer</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" class="nav-link ">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Laporan Pesanan</p>
                                     </a>
                                 </li>
 

@@ -1,120 +1,96 @@
 @extends('admin.master')
 
 @section('judul')
-Data Snack
+data Pesanan
 @endsection
 
 @section('content')
 
-<div class="table-responsive-lg">
-    <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Kd Snack</th>
-                <th>Nama Snack</th>
-                <th>Kategori</th>
-                <th>Satuan</th>
-                <th>Harga Jual</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-    </table>
-</div>
 
-<!--Srart Modal -->
-<div class="modal fade" id="modaltambahSnack">
-    <div class="modal-dialog ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Rubah Status</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!-- Button to Open the Modal -->
+<section class="pencarianlap pt-3">
+    <!-- Date and time range -->
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-2 offset-4">
+                <div class="form-group">
+                    <label class="small">Status Bayar</label>
+                    <select class="form-control" name="statusBayar" id="statusBayar">
+                        <option value="">Semua</option>
+                        <option value="belum">Belum</option>
+                        <option value="sudah">Sudah</option>
+                    </select>
+                </div>
             </div>
 
-            <form action="" method="POST" id="formSimpanSnack" class="formSnack">
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    <div class="alert alert-danger" style="display:none"></div>
-                    <div class="alert alert-success" style="display:none"></div>
+            <div class="col-sm-2 ">
+                <div class="form-group">
+                    <label class="small">Status Pengiriman</label>
+                    <select class="form-control" name="statusBayar" id="statusBayar">
+                        <option value="">Semua</option>
+                        <option value="pending">Pending</option>
+                        <option value="proses">Proses</option>
+                        <option value="terkirim">Terkirim</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4 ">
+                <div class="form-group">
+                    <label class="small">Tanggal</label>
 
-
-                    <!-- select -->
-                    <div class="form-group">
-                        <label>Kategori</label>
-                        <select class="form-control" id="kategoriSnack">
-                            <option value="Snack" default>Snack</option>
-                            <option value="Paket">Paket</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label id="labelIdSnack">ID Snack </label>
-                        <input type="text" class="form-control" placeholder="ID" id="txtIdSnack" name="txtIdSnack">
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label id="labelNamaSnack">Nama Snack </label>
-                                <input type="text" class="form-control" placeholder="Nama" id="txtNamaSnack" name="txtNamaSnack">
-                            </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                         </div>
-
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label id="labelHargaSnack">Harga Snack</label>
-                                <input type="number" class="form-control" placeholder="Harga" id="txtHargaSnack" name="txtHargaSnack">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="labelKetSnack">Ket. Snack </label>
-                        <textarea class="form-control" rows="3" id="txtKetSnack" name="txtKetSnack"></textarea>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label id="labelGambarSnack">Gambar Snack </label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="fileGambarSnack" name="fileGambarSnack">
-                            <label class="custom-file-label" for="customFile">Pilih file</label>
-                        </div>
-
-                    </div>
-
-                    <div class="text-right">
-                        <button id="btnSimpan" class="btn btn-primary"></button>
+                        <input type="text" class="form-control float-right" id="tglLaporan" value="<?php echo  Date('m/d/Y', strtotime("-3 days"));?> - <?php echo date('m/d/Y')?>">
+                        <button class="btn btn-success  ml-2"><i class="fa fa-search" aria-hidden="true"></i> Cari</button>
                     </div>
                 </div>
-
-            </form>
+            </div>
         </div>
     </div>
-</div>
-<!-- EndModal -->
 
+</section>
+
+<section>
+    <div class="container">
+        <div class="table-responsive-lg">
+            <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>No Transaksi</th>
+                        <th>Customer</th>
+                        <th>Tanggal Pesan</th>
+                        <th>Diskon</th>
+                        <th>Status Bayar</th>
+                        <th>Status Pengiriman</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.min.css')}}">
-<link rel="stylesheet" href="{{ asset('/css/autotext.css')}}">
+<link rel="stylesheet" href="{{ asset('/adminlte/plugins/daterangepicker/daterangepicker-bs3.css')}}">
 @endsection
 
 
 @section('script')
-<script src="{{ asset('js/tampilan/fileinput.js') }}"></script>
-<script src="{{ asset('js/tampilan/dataSnack.js') }}"></script>
-<script src="{{ asset('/js/bootstrap-datepicker.min.js') }}"></script>
-<script src="{{ asset('/js/tampilan/autotextidlelang.js') }}"></script>
-<script type="text/javascript">
+<!-- date-range-picker -->
+<script src="{{asset ('/js/moment-with-locales.js')}}"></script>
+<script src="{{asset ('adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<script>
     $(function() {
-        $(".datepicker").datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true,
-            todayHighlight: true,
-        });
+        //Date range picker
+        $('#tglLaporan').daterangepicker()
+
+
     });
 </script>
 
