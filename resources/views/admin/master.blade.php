@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('/adminlte/css/adminlte.min.css')}}">
     <!-- Genosstyle -->
     <link rel="stylesheet" href="{{ asset('/css/genosstyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href=" {{ asset('/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     <!-- Google Font: Source Sans Pro -->

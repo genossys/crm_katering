@@ -23,10 +23,11 @@ Route::get('/', function () {
     return view('umum.welcome');
 })->name('home');
 
-//registrasi customer
+//registrasi customer fix
 Route::get('/register', 'Master\customerController@showRegistrasiForm');
-Route::post('postRegister','Master\customerController@register')->name('register');
+Route::post('/postRegister','Master\customerController@register')->name('register');
 
+//login user fix
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/postlogin', 'Auth\LoginController@postlogin');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -61,8 +62,11 @@ Route::group(['middleware' => 'auth'], function () {
             
             Route::group(['prefix' => 'user'], function(){
                 Route::get('/','Master\userController@index')->name('pageuser');
-                // Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
-                // Route::post('/simpanSatuan','Master\satuanController@insert');
+                Route::get('/dataUser','Master\userController@getDataUser');
+                Route::post('/simpanUser', 'Master\userController@addUser');
+                Route::post('/editUser', 'Master\userController@editUser');
+                Route::post('/editPassword', 'Master\userController@editPassword');
+                Route::delete('/deleteUser', 'Master\userController@delete');
             });
 
             Route::group(['prefix' => 'customer'], function(){
