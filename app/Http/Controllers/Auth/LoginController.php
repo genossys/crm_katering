@@ -44,29 +44,19 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        return redirect('/');
-    }
 
     function postlogin(Request $request)
     {
 
-        $login_type = filter_var($request->input('user_id'), FILTER_VALIDATE_EMAIL)
+        $login_type = filter_var($request->input('username'), FILTER_VALIDATE_EMAIL)
             ? 'email'
             : 'username';
 
         $request->merge([
-            $login_type => $request->input('user_id')
+            $login_type => $request->input('username')
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            $user = Auth::user();
-            // return response()->json([
-            //     'data' => $user
-            // ]);
-
             return redirect('/');
         } else {
             return redirect()->back()->with('gagal', 'user id/password salah');

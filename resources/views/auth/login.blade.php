@@ -57,7 +57,7 @@
                 <form method="post" action="/postlogin">
                     {{csrf_field()}}
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" name="user_id" placeholder="Username / Email">
+                        <input type="text" class="form-control" name="username" placeholder="Username / Email">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">

@@ -4,11 +4,27 @@ namespace App\Http\Controllers\Master;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Master\productModel;
 
 class productController extends Controller
 {
     //
+
+
     public function index(){
-        return view('/admin/master/datasnack');
+
+        $productPromo = productModel::query()
+            ->select( 'kdProduct', 'namaProduk', 'kdSatuan', 'kategori', 'hargaJual', 'diskon', 'isi', 'promo', 'urlFoto', 'keterangan')
+            ->where('promo', '=', 'Y')
+            ->get();
+
+        $productNonPromo = productModel::query()
+            ->select( 'kdProduct', 'namaProduk', 'kdSatuan', 'kategori', 'hargaJual', 'diskon', 'isi', 'promo', 'urlFoto', 'keterangan')
+            ->where('promo', '=', 'T')
+            ->get();
+
+        return view('umum.produk')->with(['productPromo' => $productPromo, 'productNonPromo' => $productNonPromo]);
     }
+
+
 }

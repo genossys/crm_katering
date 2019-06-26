@@ -36,11 +36,11 @@
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('produk')}}">Product</a>
+                <a class="nav-link" href="{{route('product')}}">Product</a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('produk')}}">Kontak</a>
+                <a class="nav-link" href="{{route('product')}}">Kontak</a>
             </li>
 
 
@@ -48,7 +48,7 @@
 
                 @if (auth()->user()->hakAkses == 'admin' || auth()->user()->hakAkses == 'pimpinan')
                     <li class="nav-item ">
-                    <a class="nav-link" href="{{route('admin')}}">Dashboard</a>
+                    <a class="nav-link" href="{{route('admin')}}" target="_blank">Dashboard</a>
                 </li>
                 @endif
 

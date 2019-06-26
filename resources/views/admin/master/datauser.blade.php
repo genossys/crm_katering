@@ -21,10 +21,7 @@ Data User
             <tr>
                 <th>#</th>
                 <th>ID User</th>
-                <th>Password</th>
                 <th>Nama User</th>
-                <th>Alamat</th>
-                <th>No. Telp</th>
                 <th>Hak Akses</th>
                 <th>Action</th>
             </tr>

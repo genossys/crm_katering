@@ -36,11 +36,11 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{route('produk')}}">Product</a>
+                    <a class="nav-link" href="{{route('product')}}">Product</a>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{route('produk')}}">Kontak</a>
+                    <a class="nav-link" href="{{route('product')}}">Kontak</a>
                 </li>
 
                 @if (auth()->check())

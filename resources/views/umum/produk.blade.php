@@ -1,4 +1,5 @@
 @extends('umum.master')
+
 @section('content')
 
 <section class="filterpencarian">
@@ -50,69 +51,34 @@
     </div>
     <div id="carouspromo" class="carousel slide" data-ride="carousel" data-interval="5000">
 
-        <!-- The slideshow -->
-        <div class="carousel-inner container">
+       <div class="carousel-inner container">
+            @foreach ($productPromo as $pp)
+            @if ($loop->first)
             <div class="carousel-item active">
-                <div class="newprodukkon ">
-                    <div class="row">
-                        <div class="col-sm-5 text-right">
-                            <img class="gambarnew img-fluid" src="{{asset ('/assets/gambar/tigerrollcake.png')}}" alt="{{asset ('/assets/gambar/tigerrollcake.png')}}">
-                        </div>
-                        <div class="col-sm-7">
-                            <h3> (Baru) Tiger Roll Cake </h3>
-                            <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
-                            <h3 style="color: black"> Rp. 50.000</h3>
-                            <div class="tombolpesan text-right">
-                                <button class="btn btn-lg btn-primary btn-detail">Detail</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @else
             <div class="carousel-item">
-                <div class="newprodukkon">
-                    <div class="row">
-                        <div class="col-sm-5 text-right">
-                            <img class="gambarnew img-fluid" src="{{asset ('/assets/gambar/tigerrollcake.png')}}" alt="{{asset ('/assets/gambar/tigerrollcake.png')}}">
-                        </div>
-                        <div class="col-sm-7">
-                            <h3> (Baru) Tiger Roll Cake </h3>
-                            <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
-                            <h3 style="color: black"> Rp. 50.000</h3>
-                            <div class="tombolpesan text-right">
-                                <button class="btn btn-lg btn-primary btn-detail">Detail</button>
-                            </div>
+            @endif
+                <div class="row">
+                    <div class="col-sm-5 text-right">
+                        <img id="thumbnailpromo" class="gambarnew img-fluid" src="{{asset ('/foto/'.$pp->urlFoto)}}" alt="{{asset ('/foto/'.$pp->urlFoto)}}">
+                    </div>
+                    <div class="col-sm-7 text-white">
+                        <h3> {{$pp->namaProduct}}</h3>
+                        <p class="mt-4 text-white">{{$pp->deskripsi}}</p>
+                        <h3 style="color: white;font-weight: 700"> {{formatRupiah($pp->hargaJual)}}</h3>
+                        <div class="tombolpesan text-right">
+                            @if (auth()->check())
+                                    <button class="btn btn-sm btn-primary" onclick="showModalPromo('{{$pp->kdProduct}}','{{$pp->namaProduct}}', '{{$pp->deskripsi}}', '{{$pp->diskon}}','{{$pp->hargaJual}}','{{asset ('/foto/'.$pp->urlFoto)}}','{{auth()->user()->username}}')">Detail</button>
+                            @else
+                                    <button class="btn btn-sm btn-primary" onclick="showModalPromo('{{$pp->kdProduct}}','{{$pp->namaProduct}}', '{{$pp->deskripsi}}', '{{$pp->diskon}}','{{$pp->hargaJual}}','{{asset ('/foto/'.$pp->urlFoto)}}','')">Detail</button>
+                            @endif
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="newprodukkon">
-                    <div class="row">
-                        <div class="col-sm-5 text-right">
-                            <img class="gambarnew img-fluid" src="{{asset ('/assets/gambar/tigerrollcake.png')}}" alt="{{asset ('/assets/gambar/tigerrollcake.png')}}">
-                        </div>
-                        <div class="col-sm-7">
-                            <h3> (Baru) Tiger Roll Cake </h3>
-                            <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
-                            <h3 style="color: black"> Rp. 50.000</h3>
-                            <div class="tombolpesan text-right">
-                                <button class="btn btn-lg btn-primary btn-detail">Detail</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Left and right controls -->
-        <a class="carousel-control-prev tombolcarousel" href="#carouspromo" data-slide="prev">
-            <span><i class="fa fa-arrow-left" aria-hidden="true" style="color: white"></i></span>
-        </a>
-        <a class="carousel-control-next tombolcarousel" href="#carouspromo" data-slide="next">
-            <span><i class="fa fa-arrow-right" aria-hidden="true" style="color: white"></i></span>
-        </a>
+            </div>
+            @endforeach
+       </div>
 
     </div>
 

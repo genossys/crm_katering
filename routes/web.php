@@ -19,7 +19,13 @@
 //Login
 Auth::routes();
 
-Route::get('/register','Auth\customerController@showRegistrasiForm');
+Route::get('/', function () {
+    return view('umum.welcome');
+})->name('home');
+
+//registrasi customer
+Route::get('/register', 'Master\customerController@showRegistrasiForm');
+Route::post('postRegister','Master\customerController@register')->name('register');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/postlogin', 'Auth\LoginController@postlogin');
@@ -27,13 +33,9 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
-Route::get('/', function () {
-    return view('umum.welcome');
-})->name('home');
 
-Route::get('/produk', function () {
-    return view('/umum/produk');
-})->name('produk');
+
+Route::get('/product','Master\productController@index')->name('product');
 
 Route::get('/produkbykategori', function () {
     return view('/umum/produkbykategori');
@@ -51,13 +53,14 @@ Route::get('/pembayaran', function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => 'hakakses:pimpinan|admin'], function(){
+
             Route::get('/', function () {
-                return view('/admin/menuawal');
+                return view('admin.menuawal');
             })->name('admin');
 
             
             Route::group(['prefix' => 'user'], function(){
-                // Route::get('/','Master\userController@index')->name('pageuser');
+                Route::get('/','Master\userController@index')->name('pageuser');
                 // Route::get('/dataSatuan','Master\satuanController@getDataSatuan');
                 // Route::post('/simpanSatuan','Master\satuanController@insert');
             });
