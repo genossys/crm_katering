@@ -6,14 +6,15 @@ Data Satuan
 
 @section('content')
 
-    <div>
-        <button id="tambahModal" style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" data-toggle="modal" data-target="#modaltambahSatuan">
-            Tambah Data Snack
-        </button>
+<div class="pt-4">
 
-    </div>
+    <button id="tambahModal" type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#modaltambahSatuan">
+        <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+    </button>
 
-    <div class="table-responsive-lg">
+</div>
+
+<div class="table-responsive-lg">
     <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -24,9 +25,9 @@ Data Satuan
             </tr>
         </thead>
     </table>
-    </div>
+</div>
 
-    <div class="modal fade" id="modaltambahSatuan">
+<div class="modal fade" id="modaltambahSatuan">
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
@@ -44,12 +45,12 @@ Data Satuan
                         <label id="labelKdSatuan">Kode Satuan</label>
                         <input type="text" class="form-control" placeholder="Kode Satuan" id="txtKdSatuan" name="txtKdSatuan">
                     </div>
-                    
+
                     <div class="form-group">
                         <label id="labelNamaSatuan">Nama Satuan</label>
                         <input type="text" class="form-control" placeholder="Nama" id="txtNamaSatuan" name="txtNamaSatuan">
                     </div>
-                    
+
 
                     <div class="text-right">
                         <button id="btnSimpan" class="btn btn-primary"></button>
@@ -63,8 +64,8 @@ Data Satuan
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('/css/autotext.css')}}">
-    <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/autotext.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.min.css')}}">
 @endsection
 
 @section('script')

@@ -8,10 +8,9 @@ Data Snack
 
 
 <!-- Button to Open the Modal -->
-<div class="pt-4">
-
-    <button id="tambahModal" type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#modaltambahSnack">
-        <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+<div>
+    <button id="tambahModal" style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" data-toggle="modal" data-target="#modaltambahSnack">
+        Tambah Data Snack
     </button>
 
 </div>

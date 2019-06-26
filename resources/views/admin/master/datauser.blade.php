@@ -18,7 +18,7 @@ Data User
 </div>
 
 <div class="table-responsive-lg">
-    <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
+    <table id="example2" class="table table-striped  table-bordered table-hover nowrap" cellspacing="0" width="100%" style="width:100%">
         <thead>
             <tr>
                 <th>#</th>
@@ -37,7 +37,7 @@ Data User
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data user</h5>
+                <h5 class="modal-title">Tambah Data User</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -65,7 +65,7 @@ Data User
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label >Hak Akses</label>
+                                <label>Hak Akses</label>
                                 <select class="form-control" id="cBoxHakAkses" name="hakAkses">
                                     <option value="admin">Admin</option>
                                     <option value="pimpinan">Pimpinan</option>
@@ -108,7 +108,8 @@ Data User
         </div>
     </div>
 </div>
-<!-- EndModal -->
+
+<!-- Modal Edit -->
 <div class="modal fade" id="modalEditUser">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -141,7 +142,7 @@ Data User
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label >Hak Akses</label>
+                                <label>Hak Akses</label>
                                 <select class="form-control" id="cBoxHakAksesedit" name="hakAksesedit">
                                     <option value="admin">Admin</option>
                                     <option value="pimpinan">Pimpinan</option>
@@ -155,6 +156,7 @@ Data User
                             </div>
                         </div>
                     </div>
+                </div>
 
                     <div class="text-right">
                         <button id="btnEdit" class="btn btn-primary">Update</button>
@@ -188,6 +190,7 @@ Data User
                                 <input id="passwordedit" type="password" class="form-control" name="passwordedit" required autocomplete="new-password">
                             </div>
                         </div>
+                    </div>
 
 
                         <div class="col-sm-6">
