@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{route('produk')}}">Kontak</a>
+                    <a class="nav-link" href="{{route('produk')}}">Profil</a>
                 </li>
 
                 @if (auth()->check())
