@@ -37,6 +37,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
 Route::get('/product','Master\productController@index')->name('product');
+Route::get('/pencarianproduct','Master\productController@pencarian')->name('pencarian');
 
 Route::get('/produkbykategori', function () {
     return view('/umum/produkbykategori');
@@ -105,7 +106,7 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::post('/editProduct','Master\productController@edit');
                 Route::post('/editPromo', 'Master\productController@editpromo');
                 Route::delete('/deleteProduct','Master\productController@delete');
-                
+
             });
     });
 
