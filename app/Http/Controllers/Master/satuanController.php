@@ -12,35 +12,35 @@ class satuanController extends Controller
 {
     //
     public function index(){
-        return view('/admin/master/datasatuan');
+        return view('admin.master.datasatuan');
     }
 
     public function getDataSatuan(){
         $satuan = satuanModel::query()
-        ->select('kdSatuan','namaSatuan')
-        ->get();
+            ->select('kdSatuan', 'namaSatuan')
+            ->get();
 
         return DataTables::of($satuan)
             ->addIndexColumn()
-            ->addColumn('action', function ($pendaftar) {
-                return '<a class="btn-sm btn-warning" id="btn-edit" href="#" onclick="" ><i class="fa fa-edit"></i></a>
-                            <a class="btn-sm btn-danger" id="btn-delete" href="#" onclick="" ><i class="fa fa-trash"></i></a>
+            ->addColumn('action', function ($satuan) {
+                return '<a class="btn-sm btn-warning" id="btn-edit" href="#" onclick="showEditSatuan(\'' . $satuan->kdSatuan . '\', \'' . $satuan->namaSatuan . '\', event)" ><i class="fa fa-edit"></i></a>
+                            <a class="btn-sm btn-danger" id="btn-delete" href="#" onclick="hapus(\'' . $satuan->kdSatuan . '\', event)" ><i class="fa fa-trash"></i></a>
                         ';
             })
             ->rawColumns(['action'])
             ->make(true);
     }
 
-
-    public function isValid(Request $r){
+    private function isValid(Request $r)
+    {
         $messages = [
             'required'  => 'Field :attribute Tidak Boleh Kosong',
-            'max'       => 'Field :attribute Maksimal :max',
+            'max'       => 'Filed :attribute Maksimal :max',
         ];
 
         $rules = [
-            'txtKdSatuan' => 'required|max:25',
-            'txtNamaSatuan' => 'required|max:191',
+            'kdSatuan' => 'required|max:10',
+            'namaSatuan' => 'required|max:255',
         ];
 
         return Validator::make($r->all(), $rules, $messages);
@@ -50,83 +50,72 @@ class satuanController extends Controller
         if ($this->isValid($r)->fails()) {
             return response()->json([
                 'valid' => false,
-                'errors' => $this->isValid($r)->errors()->all(),
+                'errors' => $this->isValid($r)->errors()->all()
             ]);
-        } else {
-            // try {
-            //     $satuan = new satuanModel;
-            //     $satuan->kdSatuan = $r->txtKdSatuan;
-            //     $satuan->namaSatuan = $r->txtNamaSatuan;
-            //     $satuan->save();
-            //     return response()->json([
-            //         'valid' => true,
-            //         'sqlResponse' => true,
-            //         'data' => $satuan,
-            //     ]);
-            // } catch (\Exception $th) {
-            //     //throw $th;
-            //     $exData = explode('(', $th->getMessage());
-            //     return response()->json([
-            //         'valid' => true,
-            //         'sqlResponse' => false,
-            //         'data' => $exData[0],
-            //     ]);
-            // }
-        }
-    }
-
-    public function update(Request $r){
-        if ($this->isValid($r)->fails()) {
-            return response()->json([
-                'valid' => false,
-                'errors' => $this->isValid($r)->errors()->all(),
-            ]);
-        } else {
+        }else {
             try {
-                $oldkdsatuan = $r->txtKdSatuanOld;
-                $data = [
-                    'kdSatuan' => $r->txtKdSatuan,
-                    'namaSatuan' => $r->txtNamaSatuan,
-                ];
-                satuanModel::query()
-                ->where('kdSatuan','=',$oldkdsatuan)
-                ->update($data);
+                $satuan = new satuanModel();
+                $satuan->kdSatuan = $r->kdSatuan;
+                $satuan->namaSatuan = $r->namaSatuan;
+                $satuan->save();
                 return response()->json([
                     'valid' => true,
                     'sqlResponse' => true,
-                    'data' => $data,
-                    'key' => $oldkdsatuan
+                    'data' => $satuan
                 ]);
-            } catch (\Exception $th) {
-                //throw $th;
-                $exData = explode('(', $th->getMessage());
+            } catch (\Throwable $th) {
                 return response()->json([
                     'valid' => true,
                     'sqlResponse' => false,
-                    'data' => $exData[0],
+                    'data' => $th
+                ]);
+            }
+        }
+        
+    }
+
+    public function edit(Request $r)
+    {
+        if ($this->isValid($r)->fails()) {
+            return response()->json([
+                'valid' => false,
+                'errors' => $this->isValid($r)->errors()->all()
+            ]);
+        } else {
+            try {
+                $id = $r->oldkdSatuan;
+                $data = [
+                    'kdSatuan' => $r->kdSatuan,
+                    'namaSatuan' => $r->namaSatuan,
+                ];
+                satuanModel::query()
+                    ->where('kdSatuan', '=', $id)
+                    ->update($data);
+                return response()
+                    ->json([
+                        'sqlResponse' => true,
+                        'sukses' => $data,
+                        'valid' => true,
+                    ]);
+            } catch (\Throwable $th) {
+                return response()->json([
+                    'sqlResponse' => false,
+                    'data' => $th,
+                    'valid' => true,
                 ]);
             }
         }
     }
 
-    public function delete(Request $r){
-        try {
-            //code...
-            $kdSatuan = $r->input('kdSatuan');
-            satuanModel::query()
-            ->where('kdSatuan','=',$kdSatuan)
-            ->delete();
-            return response()->json([
-                'sqlResponse' => true,
-                'data' => $kdSatuan,
-            ]);
-        } catch (\Exception $th) {
-            //throw $th;
-            $exData = explode('(', $th->getMessage());
-            return response()->json([
-                'sqlResponse' => false,
-                'data' => $exData[0],
-            ]);
-        }
+    public function delete(Request $r)
+    {
+        $id = $r->input('id');
+        satuanModel::query()
+            ->where('kdSatuan', '=', $id)
+            ->delete();;
+        return response()->json([
+            'sukses' => 'Berhasil Di hapus' . $id,
+            'sqlResponse' => true,
+        ]);
     }
 }

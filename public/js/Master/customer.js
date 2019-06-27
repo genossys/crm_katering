@@ -1,4 +1,3 @@
-
 var alertSukses = $('.alert-success');
 var alertDanger = $('.alert-danger');
 
@@ -7,77 +6,79 @@ var table = $('#example2').DataTable({
     autowidth: true,
     serverSide: true,
     processing: false,
-    ajax: '/admin/satuan/dataSatuan',
+    ajax: '/admin/customer/dataCustomer',
     columns: [
-        { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false, sortable: false },
-        { data: 'kdSatuan', name: 'kdSatuan' },
-        { data: 'namaSatuan', name: 'namaSatuan' },
+        { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false},
+        { data: 'kdCustomer', name: 'kdCustomer' },
+        { data: 'namaCustomer', name: 'namaCustomer' },
+        { data: 'nohp', name: 'nohp' },
+        { data: 'alamat', name: 'alamat' },
         { data: 'action', name: 'action', searchable: false, orderable: false }
     ],
-    columnDefs: [{
-                targets: [0],
-                width: '5%',
-                orderable: false
-            },
-            {
-                targets: [0, 1, 3],
-                className: 'text-center'
-            },
-        ],
-        "scrollX": true
+     columnDefs: [
+        { targets: [0], width:'5%', orderable: false},
+        {
+            targets: [0, 1, 3],
+            className: 'text-center'
+        },
+    ],
+    "scrollX": true
 
 });
 
 $(document).ready(function () {
 
-    $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-
-    $('#btnSimpan').on('click', function (e) {
-        var FormID = $(".form").attr("id");
-        e.preventDefault();
-        if (FormID == 'simpan') {
-            simpanData();
-        } else {
-            editData();
-        }
-    });
-
+        
+        $('#btnSimpan').on('click', function (e) {
+            var FormID = $(".form").attr("id");
+            e.preventDefault();
+            if (FormID == 'simpan') {
+               simpanData();
+            } else {
+                editData();
+            }
+        });
+        
 });
 
-function showTambahSatuan() {
+function showTambahCustomer() {
     $(".form").attr("id", "simpan");
     $("#iconbtn").text(' Simpan');
-    $('#modalSatuan').modal('show');
-    clearField();
+    $('#modalCustomer').modal('show');
 }
 
-function showEditSatuan(kode, nama, e) {
+function showEditCustomer(kode, nama, nohp, alamat, e) {
     $(".form").attr("id", "edit");
     $("#iconbtn").text(' Simpan');
     e.preventDefault();
-    $('#oldkdSatuan').val(kode);
-    $('#kdSatuan').val(kode);
-    $('#namaSatuan').val(nama);
-    $('#modalSatuan').modal('show');
+    $('#oldkdcustomer').val(kode);
+    $('#kdCustomer').val(kode);
+    $('#namaCustomer').val(nama);
+    $('#alamat').val(alamat);
+    $('#nohp').val(nohp);
+    $('#modalCustomer').modal('show');
 }
 
 function clearField() {
-    $('#kdSatuan').val('');
-    $('#namaSatuan').val('');
+    $('#kdCustomer').val('');
+    $('#namaCustomer').val('');
+    $('#alamat').val('');
+    $('#nohp').val('');
 }
 
 function simpanData() {
     var formData = new FormData($('#simpan')[0]);
     $.ajax({
         type: 'POST',
-        url: '/admin/satuan/simpanSatuan',
+        url: '/admin/customer/simpanCustomer',
         dataType: 'JSON',
         data: formData,
         contentType: false,
@@ -111,11 +112,12 @@ function simpanData() {
 
     });
 }
+
 function editData() {
     var formData = new FormData($('#edit')[0]);
     $.ajax({
         type: 'POST',
-        url: '/admin/satuan/editSatuan',
+        url: '/admin/customer/editCustomer',
         dataType: 'JSON',
         data: formData,
         contentType: false,
@@ -126,7 +128,7 @@ function editData() {
             if (response.valid) {
                 if (response.sqlResponse) {
                     alert('Berhasil Merubah Data!');
-                    $('#modalSatuan').modal('hide');
+                    $('#modalCustomer').modal('hide');
                     table.draw();
                 } else {
                     alert(response.data);
@@ -154,7 +156,7 @@ function hapus(id, e) {
 
         $.ajax({
             type: 'POST',
-            url: '/admin/satuan/deleteSatuan',
+            url: '/admin/customer/deleteCustomer',
             data: {
                 _method: 'DELETE',
                 _token: $('input[name=_token]').val(),

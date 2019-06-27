@@ -8,7 +8,8 @@ class satuanModel extends Model
 {
     //
     protected $table = 'tb_satuan';
-    protected $fillable = ['kdSatuan','namaSatuan'];
+    protected $fillable = ['kdSatuan', 'namaSatuan'];
     protected $primaryKey = 'kdSatuan';
     public $incrementing = false;
+    public $timestamps = false;
 }

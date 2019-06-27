@@ -5,27 +5,27 @@ namespace App\Http\Controllers\Master;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
+use App\Master\kategoriModel;
 use Illuminate\Support\Facades\Validator;
-use App\Master\customerModel;
 
-class customerController extends Controller
+class kategoriController extends Controller
 {
     //
     public function index()
     {
-        return view('admin.master.datacustomer');
+        return view('admin.master.datakategori');
     }
-    public function getDataCustomer()
+    public function getDatakategori()
     {
-        $customer = customerModel::query()
-            ->select('kdCustomer', 'namaCustomer', 'nohp', 'alamat')
+        $kategori = kategoriModel::query()
+            ->select('kdKategori', 'namaKategori')
             ->get();
 
-        return DataTables::of($customer)
+        return DataTables::of($kategori)
             ->addIndexColumn()
-            ->addColumn('action', function ($customer) {
-                return '<a class="btn-sm btn-warning" id="btn-edit" href="#" onclick="showEditCustomer(\'' . $customer->kdCustomer . '\', \'' . $customer->namaCustomer . '\', \'' . $customer->nohp . '\', \'' . $customer->alamat . '\', event)" ><i class="fa fa-edit"></i></a>
-                            <a class="btn-sm btn-danger" id="btn-delete" href="#" onclick="hapus(\'' . $customer->kdCustomer . '\', event)" ><i class="fa fa-trash"></i></a>
+            ->addColumn('action', function ($kategori) {
+                return '<a class="btn-sm btn-warning" id="btn-edit" href="#" onclick="showEditkategori(\''.$kategori->kdKategori.'\', \''.$kategori->namaKategori.'\', event)" ><i class="fa fa-edit"></i></a>
+                            <a class="btn-sm btn-danger" id="btn-delete" href="#" onclick="hapus(\''.$kategori->kdKategori.'\', event)" ><i class="fa fa-trash"></i></a>
                         ';
             })
             ->rawColumns(['action'])
@@ -40,9 +40,8 @@ class customerController extends Controller
         ];
 
         $rules = [
-            'kdCustomer' => 'required|max:10',
-            'namaCustomer' => 'required|max:255',
-            'nohp' => 'required|numeric|digits_between:1,15',
+            'kdKategori' => 'required|max:10',
+            'namaKategori' => 'required|max:255',
         ];
 
         return Validator::make($r->all(), $rules, $messages);
@@ -57,16 +56,14 @@ class customerController extends Controller
             ]);
         } else {
             try {
-                $customer = new customerModel();
-                $customer->kdCustomer = $r->kdCustomer;
-                $customer->namaCustomer = $r->namaCustomer;
-                $customer->nohp = $r->nohp;
-                $customer->alamat = $r->alamat;
-                $customer->save();
+                $satuan = new kategoriModel();
+                $satuan->kdKategori = $r->kdKategori;
+                $satuan->namaKategori = $r->namaKategori;
+                $satuan->save();
                 return response()->json([
                     'valid' => true,
                     'sqlResponse' => true,
-                    'data' => $customer
+                    'data' => $satuan
                 ]);
             } catch (\Throwable $th) {
                 return response()->json([
@@ -87,15 +84,13 @@ class customerController extends Controller
             ]);
         } else {
             try {
-                $id = $r->oldkdcustomer;
+                $id = $r->oldkdKategori;
                 $data = [
-                    'kdCustomer' => $r->kdCustomer,
-                    'namaCustomer' => $r->namaCustomer,
-                    'nohp' => $r->nohp,
-                    'alamat' => $r->alamat,
+                    'kdKategori' => $r->kdKategori,
+                    'namaKategori' => $r->namaKategori,
                 ];
-                customerModel::query()
-                    ->where('kdCustomer', '=', $id)
+                kategoriModel::query()
+                    ->where('kdkategori', '=', $id)
                     ->update($data);
                 return response()
                     ->json([
@@ -116,8 +111,8 @@ class customerController extends Controller
     public function delete(Request $r)
     {
         $id = $r->input('id');
-        customerModel::query()
-            ->where('kdCustomer', '=', $id)
+        kategoriModel::query()
+            ->where('kdkategori', '=', $id)
             ->delete();
         return response()->json([
             'sukses' => 'Berhasil Di hapus' . $id,

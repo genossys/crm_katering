@@ -102,19 +102,28 @@
                                 </li>
 
                                 <li class="nav-item ">
-                                    <a href="/customer" class="nav-link">
+                                    <a href="{{ route('pagecustomer') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data Customer</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a href="{{ route('adminSatuan') }}" class="nav-link ">
+                                    <a href="{{ route('pagesatuan') }}" class="nav-link ">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data Satuan</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a href="{{ route('adminProduct') }}" class="nav-link ">
+                                    <a href="{{route ('pagekategori')}}" class="nav-link ">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>Data Kategori</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('pageproduct') }}" class="nav-link ">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>Data Snack</p>
                                     </a>

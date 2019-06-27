@@ -80,6 +80,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
+        '85c95c933c94a18eb6c6970cfc3e2fbf' => __DIR__ . '/../..' . '/app/Helper/genoshelper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -498,6 +499,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Master\\customerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/customerController.php',
+        'App\\Http\\Controllers\\Master\\kategoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/kategoriController.php',
         'App\\Http\\Controllers\\Master\\productController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/productController.php',
         'App\\Http\\Controllers\\Master\\satuanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/satuanController.php',
         'App\\Http\\Controllers\\Master\\userController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/userController.php',
@@ -511,6 +513,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\cekRole' => __DIR__ . '/../..' . '/app/Http/Middleware/cekRole.php',
         'App\\Master\\customerModel' => __DIR__ . '/../..' . '/app/Master/customerModel.php',
+        'App\\Master\\kategoriModel' => __DIR__ . '/../..' . '/app/Master/kategoriModel.php',
         'App\\Master\\productModel' => __DIR__ . '/../..' . '/app/Master/productModel.php',
         'App\\Master\\satuanModel' => __DIR__ . '/../..' . '/app/Master/satuanModel.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
