@@ -8,13 +8,12 @@ Data User
 
 
 <!-- Button to Open the Modal -->
-<div>
-    <button id="tambahModal" style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" onclick="showTambahUser()">
-        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Tambah User
+<div class="pt-4">
+
+    <button id="tambahModal" type="button" class="btn btn-primary pull-left" onclick="showTambahUser()">
+        <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
     </button>
-    <br>
-    <br>
-    <hr>
+
 </div>
 
 <div class="table-responsive-lg">

@@ -15,6 +15,7 @@ class kategoriController extends Controller
     {
         return view('admin.master.datakategori');
     }
+
     public function getDatakategori()
     {
         $kategori = kategoriModel::query()

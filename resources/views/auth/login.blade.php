@@ -40,8 +40,7 @@
         <script>
             Swal.fire({
                 type: 'error',
-                title: '{{session('
-                gagal ')}}!',
+                title: 'User ID atau password anda salah',
             })
         </script>
         @endif
@@ -51,7 +50,7 @@
                 <a href="" ><b  style="color: gold"> Catering Bu Tino</b></a>
             </div>
             <!-- /.login-logo -->
-            <div class="login-box-body">
+            <div class="login-box-body rounded">
                 <p class="login-box-msg">Masukan User ID dan password anda</p>
 
                 <form method="post" action="/postlogin">

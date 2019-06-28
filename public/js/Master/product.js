@@ -8,6 +8,7 @@ var table = $('#example2').DataTable({
     autowidth: true,
     serverSide: true,
     processing: false,
+
     ajax: '/admin/product/getDataProduct',
     columns: [
         { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false},
@@ -24,7 +25,7 @@ var table = $('#example2').DataTable({
         {
             targets: [0, 1, 3, 6, 7],
             className: 'text-center'
-        }, 
+        },
         {
             targets: [4,5],
             className: 'text-right'
@@ -158,7 +159,7 @@ function simpanData() {
         error: function (response) {
             alert('error' + response.responseText);
         }
-    
+
     });
 }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Master\productModel;
+use App\Master\kategoriModel;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +30,6 @@ class productController extends Controller
             ])
             ->get();
 
-
         $snack = productModel::query()
             ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
             ->where([
@@ -44,7 +44,18 @@ class productController extends Controller
 
     public function showFormProduct()
     {
+
+
         return view('admin.master.datasnack');
+    }
+
+    public function showLapoanProduct()
+    {
+        $kategori = kategoriModel::query()
+            ->select('kdKategori', 'namaKategori')
+            ->get();
+
+        return view('admin.laporan.laporansnack')->with('kategori', $kategori);
     }
 
     public function getDataproduct()

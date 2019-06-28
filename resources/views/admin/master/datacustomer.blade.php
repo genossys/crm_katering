@@ -8,16 +8,14 @@ Data Customer
 
 
 <!-- Button to Open the Modal -->
-<br>
-<div>
-    <button id="tambahModal" style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" onclick="showTambahCustomer()">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i> Data Customer
+
+<div class="pt-4">
+
+    <button id="tambahModal" type="button" class="btn btn-primary pull-left" onclick="showTambahCustomer()">
+        <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
     </button>
 
 </div>
-<br>
-    <br>
-    <hr>
 
 <div class="table-responsive-lg">
     <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
@@ -75,7 +73,7 @@ Data Customer
                                 <label>No.Telp </label>
                                 <input type="text" class="form-control" placeholder="No. Hp" id="nohp" name="nohp">
                     </div>
-                    
+
                     <div class="text-right">
                         <button id="btnSimpan" class="btn btn-primary"><i id="iconbtn" class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;</button>
                     </div>

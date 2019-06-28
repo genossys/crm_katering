@@ -5,30 +5,29 @@ Data Satuan
 @endsection
 
 @section('content')
-<br>
-    <div>
-        <button id="btnTambah" type="button" style="margin-bottom: 10px"class="btn btn-primary box-tools pull-right" onclick="showTambahSatuan()">
-            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Tambah Satuan
-        </button>
-        <br>
-        <br>
-        <hr>
-    </div>
 
-    <div class="table-responsive-lg">
-        <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>KD Satuan</th>
-                    <th>Nama Satuan</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+<div class="pt-4">
 
-    <div class="modal fade" id="modalSatuan">
+    <button id="tambahModal" type="button" class="btn btn-primary pull-left" onclick="showTambahSatuan()">
+        <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+    </button>
+
+</div>
+
+<div class="table-responsive-lg">
+    <table id="example2" class="table table-striped  table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>KD Satuan</th>
+                <th>Nama Satuan</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div class="modal fade" id="modalSatuan">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -50,7 +49,7 @@ Data Satuan
                         <label>Nama Satuan</label>
                         <input type="text" class="form-control" placeholder="Nama Satuan" id="namaSatuan" name="namaSatuan">
                     </div>
-                    
+
                     <div class="text-right">
                         <button id="btnSimpan" class="btn btn-primary"><i id="iconbtn" class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;</button>
                     </div>
@@ -59,7 +58,7 @@ Data Satuan
             </form>
         </div>
     </div>
-    </div>
+</div>
 @endsection
 
 @section('css')
