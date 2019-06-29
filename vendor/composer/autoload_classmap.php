@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\Laporan\\pdfmaker' => $baseDir . '/app/Http/Controllers/Laporan/pdfmaker.php',
     'App\\Http\\Controllers\\Master\\customerController' => $baseDir . '/app/Http/Controllers/Master/customerController.php',
     'App\\Http\\Controllers\\Master\\kategoriController' => $baseDir . '/app/Http/Controllers/Master/kategoriController.php',
     'App\\Http\\Controllers\\Master\\productController' => $baseDir . '/app/Http/Controllers/Master/productController.php',
@@ -29,6 +30,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\cekRole' => $baseDir . '/app/Http/Middleware/cekRole.php',
+    'App\\Master\\customer' => $baseDir . '/app/Master/customer.php',
     'App\\Master\\customerModel' => $baseDir . '/app/Master/customerModel.php',
     'App\\Master\\kategoriModel' => $baseDir . '/app/Master/kategoriModel.php',
     'App\\Master\\productModel' => $baseDir . '/app/Master/productModel.php',
@@ -4189,4 +4191,5 @@ return array(
     'phpDocumentor\\Reflection\\Types\\String_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/String_.php',
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+    'productSeeder' => $baseDir . '/database/seeds/productSeeder.php',
 );

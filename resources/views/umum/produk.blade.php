@@ -128,6 +128,9 @@
 </section>
 
 <!-- COROUSEL SNACK -->
+{{-- @foreach ($paket as $item)
+    {{ $item->kdProduct }}
+@endforeach --}}
 <section class="produkkami" style="min-height: 700px">
     <div class="container" id="snackkami">
         <div class="row">
@@ -227,12 +230,13 @@
                 <div class="jumbotron  modalproduk">
                     <div class="row">
                         <div class="col-sm-5 text-right">
-                            <img class="gambarmodal img-fluid" src="{{asset ('/assets/gambar/arem.jpg')}}" alt="{{asset ('/assets/gambar/arem.jpg')}}">
+                            <img class="gambarmodal img-fluid" id ="gambarnew" src="" alt="">
                         </div>
                         <div class="col-sm-7">
-                            <h3 class="font-weight-bold"> Arem arem </h3>
-                            <p class="mt-5">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
-                            <h3 style="color: black"> Rp. 2.000</h3>
+                            <h3 class="font-weight-bold" id="namaproduct"></h3>
+                            <p class="mt-5" id="deskripsi">Cake kali ini sedikit beda dengan tampilan cake yang lain, agar tampilan lebih menarik dan unik cake ini dibuat motif dengan sentuhan aksen seperti warna macan tutul. Untuk memberi aksen motif seperti ini memang cukup membutuhkan keahlian dan ketelatenan.</p>
+                            <input type="hidden" id="diskon">
+                            <h3 style="color: black" id="hargaJual"></h3>
 
                             <div class="tombolpesan">
                                 <p>
@@ -243,7 +247,7 @@
                                             <span>-</span>
                                         </button>
                                     </span>
-                                    <input type="text" name="quant[2]" class="input-number text-center" value="1" min="1" max="100" style="width: 50px">
+                                    <input type="text" id="qty" name="quant[2]" class="input-number text-center" value="1" min="1" max="100" style="width: 50px">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success btn-number input-min" data-type="plus" data-field="quant[2]">
                                             <span>+</span>
@@ -252,7 +256,11 @@
                                 </div>
                                 <p></p>
 
-                                <button class="btn btn-primary">Tambah Ke Keranjang</button>
+                                @if (auth()->check())
+                                        <button class="btn btn-primary" id="btnSimpan">Tambah Ke Keranjang</button>
+                                    @else
+                                        <button class="btn btn-primary" onclick="javascript:alert('Anda Harus Login Dulu!')">Tambah Ke Keranjang</button>
+                                    @endif
                             </div>
                         </div>
                     </div>
@@ -299,8 +307,13 @@
                 nama: nama,
                 page: page
             },
-            success: function(data) {
+            success: function(response, data) {
                 $("#snackkami").html(data.html);
+                console.log(response);
+            },
+             error: function (response) {
+            console.log(response);
+            alert('gagal \n' + response.responseText);
             }
         });
     });
@@ -330,4 +343,5 @@
         });
     });
 </script>
+<script src="{{ asset('/js/Transaksi/product.js') }}"></script>
 @endsection

@@ -23,23 +23,17 @@ class productController extends Controller
             ->get();
 
         $paket = productModel::query()
-            ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
-            ->where([
-                ['promo', '=', 'T'],
-                ['kdKategori', '=', 'PKT']
-            ])
+            ->select('kdProduct', 'namaProduct', 'kdSatuan', 'kdKategori', 'hargaJual', 'diskon',  'promo', 'urlFoto', 'deskripsi')
+            ->where('kdKategori', '=', 'PAKET')
             ->get();
 
         $snack = productModel::query()
             ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
-            ->where([
-                ['promo', '=', 'T'],
-                ['kdKategori', '=', 'SNK']
-            ])
+            ->where('kdKategori', '=', 'SNACK')
             ->get();
 
 
-        return view('umum.produk')->with(['productPromo' => $productPromo, 'snack' => $snack,  'paket' => $paket]);
+        return view('umum.produk')->with(['productPromo' => $productPromo, 'snack' => $snack, 'paket' => $paket]);
     }
 
     public function showFormProduct()
@@ -136,7 +130,7 @@ class productController extends Controller
 
             if ($r->hasFile('urlFoto')) {
                 $upFoto = $r->file('urlFoto');
-                $namaFoto = $r->kdProduk . '.' . $upFoto->getClientOriginalExtension();
+                $namaFoto = $r->kdProduct . '.' . $upFoto->getClientOriginalExtension();
                 $r->urlFoto->move(public_path('foto'), $namaFoto);
             } else {
                 $namaFoto = '';
@@ -193,7 +187,7 @@ class productController extends Controller
 
                 if ($r->hasFile('urlFoto')) {
                     $upFoto = $r->file('urlFoto');
-                    $namaFoto = $r->kdProduk . '.' . $upFoto->getClientOriginalExtension();
+                    $namaFoto = $r->kdProduct . '.' . $upFoto->getClientOriginalExtension();
                     $r->urlFoto->move(public_path('foto'), $namaFoto);
                     $data = array_add($data, 'urlFoto', $namaFoto);
                 }
@@ -280,10 +274,12 @@ class productController extends Controller
 
         if ($contoh != null) {
             $returnHTML = view($request->page)->with('snack', $snack)->render();
-            return response()->json(array('success' => true, 'html' => $returnHTML));
+            // return response()->json(array('success' => true, 'html' => $returnHTML));
+            return response()->json($contoh);
         } else {
             $returnHTML = view('isipage.produkkosong')->render();
-            return response()->json(array('success' => true, 'html' => $returnHTML));
+            // return response()->json(array('success' => true, 'html' => $returnHTML));
+            return response()->json($contoh);
         }
     }
 }

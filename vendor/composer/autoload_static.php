@@ -498,6 +498,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\Laporan\\pdfmaker' => __DIR__ . '/../..' . '/app/Http/Controllers/Laporan/pdfmaker.php',
         'App\\Http\\Controllers\\Master\\customerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/customerController.php',
         'App\\Http\\Controllers\\Master\\kategoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/kategoriController.php',
         'App\\Http\\Controllers\\Master\\productController' => __DIR__ . '/../..' . '/app/Http/Controllers/Master/productController.php',
@@ -512,6 +513,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\cekRole' => __DIR__ . '/../..' . '/app/Http/Middleware/cekRole.php',
+        'App\\Master\\customer' => __DIR__ . '/../..' . '/app/Master/customer.php',
         'App\\Master\\customerModel' => __DIR__ . '/../..' . '/app/Master/customerModel.php',
         'App\\Master\\kategoriModel' => __DIR__ . '/../..' . '/app/Master/kategoriModel.php',
         'App\\Master\\productModel' => __DIR__ . '/../..' . '/app/Master/productModel.php',
@@ -4672,6 +4674,7 @@ class ComposerStaticInitece473d584ea2e08dd70decee7e06110
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'productSeeder' => __DIR__ . '/../..' . '/database/seeds/productSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

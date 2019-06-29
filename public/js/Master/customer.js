@@ -9,8 +9,8 @@ var table = $('#example2').DataTable({
     ajax: '/admin/customer/dataCustomer',
     columns: [
         { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false},
-        { data: 'kdCustomer', name: 'kdCustomer' },
-        { data: 'namaCustomer', name: 'namaCustomer' },
+        { data: 'username', name: 'username' },
+        { data: 'email', name: 'email' },
         { data: 'nohp', name: 'nohp' },
         { data: 'alamat', name: 'alamat' },
         { data: 'action', name: 'action', searchable: false, orderable: false }
@@ -55,21 +55,22 @@ function showTambahCustomer() {
     $('#modalCustomer').modal('show');
 }
 
-function showEditCustomer(kode, nama, nohp, alamat, e) {
+function showEditCustomer(username, email, nohp, alamat, e) {
+    event.preventDefault();
     $(".form").attr("id", "edit");
     $("#iconbtn").text(' Simpan');
-    e.preventDefault();
-    $('#oldkdcustomer').val(kode);
-    $('#kdCustomer').val(kode);
-    $('#namaCustomer').val(nama);
+    $('#oldusername').val(username);
+    $('#username').val(username);
+    $('#email').val(email);
     $('#alamat').val(alamat);
     $('#nohp').val(nohp);
     $('#modalCustomer').modal('show');
 }
 
 function clearField() {
-    $('#kdCustomer').val('');
-    $('#namaCustomer').val('');
+    $('#oldusername').val('');
+    $('#username').val('');
+    $('#email').val('');
     $('#alamat').val('');
     $('#nohp').val('');
 }

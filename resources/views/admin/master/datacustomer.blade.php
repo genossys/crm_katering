@@ -22,8 +22,8 @@ Data Customer
         <thead>
             <tr>
                 <th>#</th>
-                <th>Kode Customer</th>
-                <th>Nama</th>
+                <th>Username</th>
+                <th>Email</th>
                 <th>No. Telp</th>
                 <th>Alamat</th>
                 <th>Action</th>
@@ -48,19 +48,19 @@ Data Customer
                 <div class="modal-body">
                     <div class="alert alert-danger" style="display:none"></div>
                     <div class="alert alert-success" style="display:none"></div>
-                    <input type="hidden" name="oldkdcustomer" id="oldkdcustomer">
+                    <input type="hidden" name="oldusername" id="oldusername">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Kode Customer </label>
-                                <input type="text" class="form-control" placeholder="Kode Customer" id="kdCustomer" name="kdCustomer">
+                                <label>Username</label>
+                                <input type="text" class="form-control" placeholder="Username" id="username" name="username">
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Nama Customer </label>
-                                <input type="text" class="form-control" placeholder="Nama Customer" id="namaCustomer" name="namaCustomer">
+                                <label>Email </label>
+                                <input type="email" class="form-control" placeholder="Email" id="email" name="email">
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,18 @@ Data Customer
                         <input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat">
                     </div>
                     <div class="form-group">
-                                <label>No.Telp </label>
-                                <input type="text" class="form-control" placeholder="No. Hp" id="nohp" name="nohp">
+                        <label>No.Telp </label>
+                        <input type="text" class="form-control" placeholder="No. Hp" id="nohp" name="nohp">
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ __('Password') }}</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>{{ __('Confirm Password') }}</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
                     <div class="text-right">

@@ -40,7 +40,7 @@
 
             <div class="col-sm-10 text-right">
                 <div class="totalkeranjang ">
-                    <a>Total: </a> <a class="font-weight-bold"> Rp 50.000 </a> </div>
+                    <a>Total: </a> <a class="font-weight-bold" id="totalKeranjang"></a> </div>
             </div>
         </div>
         <hr>
@@ -54,10 +54,14 @@
 </section>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap4.min.css')}}">
+@endsection
 
 @section('script')
 <script src="{{ asset('/js/tampilan/genosstyle.js') }}"></script>
-<script src="{{ asset('/js/tampilan/inputnumber.js')}}">
-
-</script>
+<script src="{{ asset('/js/tampilan/numeral.min.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/dataTablesBootstrap4.js') }}"></script>
+<script src="{{ asset('/js/Transaksi/keranjang.js') }}"></script>
 @endsection

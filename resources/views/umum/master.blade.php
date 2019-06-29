@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <title>CRM Katering</title>
     <!-- Fonts -->
@@ -82,6 +83,7 @@
     <!-- JS -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script src=" {{asset ('/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     @yield('script')
 
