@@ -33,21 +33,18 @@ Route::post('/postlogin', 'Auth\LoginController@postlogin');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
-
-
-
 Route::group(['prefix' => 'product'], function () {
     Route::get('/', 'Master\productController@index')->name('product');
+    Route::get('/pencarianproduct', 'Master\productController@pencarianProduct');
+    Route::get('/pencarianpromo', 'Master\productController@pencarianpromo');
     Route::post('/simpanProduct', 'Transaksi\KeranjangController@insert');
 });
-// Route::get('/product', 'Master\productController@index')->name('product');
-Route::get('/pencarianproduct', 'Master\productController@pencarian')->name('pencarian');
+
+
+
 
 Route::get('/getDataKeranjang', 'Transaksi\KeranjangController@getDataKeranjang');
 
-Route::get('/produkbykategori', function () {
-    return view('/umum/produkbykategori');
-})->name('produkbykategori');
 
 
 Route::get('/keranjang', function () {

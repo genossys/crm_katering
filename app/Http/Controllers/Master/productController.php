@@ -8,6 +8,7 @@ use App\Master\productModel;
 use App\Master\kategoriModel;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Arr;
 
 class productController extends Controller
 {
@@ -16,30 +17,11 @@ class productController extends Controller
 
     public function index()
     {
-
-        $productPromo = productModel::query()
-            ->select('kdProduct', 'namaProduct', 'kdSatuan', 'kdKategori', 'hargaJual', 'diskon',  'promo', 'urlFoto', 'deskripsi')
-            ->where('promo', '=', 'Y')
-            ->get();
-
-        $paket = productModel::query()
-            ->select('kdProduct', 'namaProduct', 'kdSatuan', 'kdKategori', 'hargaJual', 'diskon',  'promo', 'urlFoto', 'deskripsi')
-            ->where('kdKategori', '=', 'PAKET')
-            ->get();
-
-        $snack = productModel::query()
-            ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
-            ->where('kdKategori', '=', 'SNACK')
-            ->get();
-
-
-        return view('umum.produk')->with(['productPromo' => $productPromo, 'snack' => $snack, 'paket' => $paket]);
+        return view('umum.produk');
     }
 
     public function showFormProduct()
     {
-
-
         return view('admin.master.datasnack');
     }
 
@@ -250,36 +232,63 @@ class productController extends Controller
         }
     }
 
-    public function pencarian(Request $request)
+    public function pencarianProduct(Request $request)
     {
-        $batas = 0;
-        if ($request->batas == '') {
-            $batas = 10000000;
-        } else {
-            $batas = $request->batas;
+        $searchbyname = [['namaProduct', 'LIKE', '%' . $request->schproduk . '%']];
+        $searchbydeskripsi = [['deskripsi', 'LIKE', '%' . $request->schproduk . '%']];
+        $searchbyharga = [['hargaJual', '>', 0]];
+        if ($request->hrgproduk != '') {
+            $searchbyharga = [['hargaJual', '<=', $request->hrgproduk]];
         }
 
-        $snack = productModel::query()
+        $data = productModel::query()
             ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
-            ->where([
-                ['promo', '=', $request->promo],
-                ['kdKategori', 'like', '%' . $request->kategori . '%'],
-                ['hargaJual', '<', $batas],
-                ['namaProduct', 'like', '%' . $request->nama . '%']
-            ])
-            ->orderby('hargaJual', $request->orderharga)
+            ->where('promo', '=', 'T')
+            ->where(function($q) use ( $searchbyname, $searchbydeskripsi){
+                $q->where($searchbyname)
+                ->orWhere($searchbydeskripsi);
+                })
+            ->where($searchbyharga)
+            ->orderby('hargaJual', $request->orderproduk)
             ->get();
 
-        $contoh = $snack->first();
-
-        if ($contoh != null) {
-            $returnHTML = view($request->page)->with('snack', $snack)->render();
-            // return response()->json(array('success' => true, 'html' => $returnHTML));
-            return response()->json($contoh);
+        if (!$data->isEmpty()) {
+            $snack = $data->where('kdKategori', 'SNK');
+            $paket = $data->where('kdKategori', 'PKT');
+            $returnHTML = view('isipage.produkkonten')->with(['snack' => $snack->all(), 'paket' => $paket->all()])->render();
         } else {
             $returnHTML = view('isipage.produkkosong')->render();
-            // return response()->json(array('success' => true, 'html' => $returnHTML));
-            return response()->json($contoh);
         }
+        return response()->json(array('success' => true, 'html' => $returnHTML));
     }
+
+    public function pencarianpromo(Request $request)
+    {
+        $searchbyname = [['namaProduct', 'LIKE', '%' . $request->schpromo . '%']];
+        $searchbydeskripsi = [['deskripsi', 'LIKE', '%' . $request->schpromo . '%']];
+        $searchbyharga = [['hargaJual', '>', 0]];
+        if ($request->hrgpromo != '') {
+            $searchbyharga = [['hargaJual', '<=', $request->hrgpromo]];
+        }
+
+        $data = productModel::query()
+            ->select('kdProduct', 'namaProduct', 'kdKategori', 'kdSatuan', 'hargaJual', 'diskon', 'deskripsi', 'promo', 'urlFoto')
+            ->where('promo', '=', 'Y')
+            ->where(function($q) use ( $searchbyname, $searchbydeskripsi){
+                $q->where($searchbyname)
+                ->orWhere($searchbydeskripsi);
+                })
+            ->where($searchbyharga)
+            ->orderby('hargaJual', $request->orderpromo)
+            ->get();
+
+        if (!$data->isEmpty()) {
+            $returnHTML = view('isipage.promokonten')->with(['promo' => $data->all()])->render();
+        } else {
+            $returnHTML = view('isipage.produkkosong')->render();
+        }
+        return response()->json(array('success' => true, 'html' => $returnHTML));
+    }
+
+
 }
